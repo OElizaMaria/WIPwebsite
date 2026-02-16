@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrolling Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    /* Text section on the right */
+    .text {
+      position: sticky;
+      top: 0;
+      flex: 1;
+      padding: 20px;
+      height: 100vh; /* fill the viewport */
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+    }
+
+    /* Gallery section on the left */
+    .gallery {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100vh; /* Each image takes full viewport height */
+      object-fit: cover;
+    }
+
+    /* Extra content after the gallery */
+    .after-gallery {
+      height: 500px;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="gallery">
+      <img src="https://picsum.photos/id/1011/800/600" alt="Photo 1">
+      <img src="https://picsum.photos/id/1012/800/600" alt="Photo 2">
+      <img src="https://picsum.photos/id/1013/800/600" alt="Photo 3">
+      <img src="https://picsum.photos/id/1015/800/600" alt="Photo 4">
+    </div>
+
+    <div class="text">
+      <h1>Sticky Text Section</h1>
+      <p>This text stays in place while the images scroll.</p>
+      <p>Once you finish scrolling the images, you can continue scrolling the rest of the page.</p>
+    </div>
+  </div>
+
+  <div class="after-gallery">
+    End of gallery content
+  </div>
+
+</body>
+</html>

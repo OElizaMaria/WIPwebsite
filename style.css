@@ -30,9 +30,10 @@ nav {
 .rightButtons{
     display: flex;
     gap:30px;
+    align-items: center;
 }
 
-#aboutB, #projB {
+#aboutB{
     font-size: 20px;
     padding: 15px 80px;
     font-family: Garamond, serif;
@@ -41,10 +42,67 @@ nav {
     transition: font-size 0.3s, color 0.3s; 
 }
 
-#aboutB:hover, #projB:hover {
+
+#aboutB:hover {
     font-size: 22px;
     color: white; 
 }
+
+.projects-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+#projB {
+    font-size: 20px;
+    padding: 15px 80px;
+    font-family: Garamond, serif;
+    color: grey;
+    text-decoration: none;
+    transition: font-size 0.3s, color 0.3s; 
+}
+
+#projB:hover {
+    font-size: 22px;
+    color: #EDEBE4; 
+}
+
+.projects-menu {
+    display: none;
+    position: absolute;
+    top: 150%;             
+    right: 0;
+    width: 30vw; 
+    background-color: #EDEBE4;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    z-index: 1000;         
+    border-radius: 5px;          
+    overflow-y: auto;    
+    padding: 10px;
+}
+
+.projects-menu a {
+    display: block;
+    padding: 5px 5px;
+    font-family: Garamond, serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: grey;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 10px 10px;  
+}
+
+.projects-menu a:hover {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.projects-dropdown:hover .projects-menu {
+    display: block;
+}
+
 
 .image-buttons-top {
     display: flex;            
@@ -148,8 +206,6 @@ nav {
     height: 100px;
     box-sizing: border-box;                                    
 }
-
-
 
 nav a:hover {
     opacity: 0.7;
