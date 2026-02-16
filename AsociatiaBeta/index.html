@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+      
+    <img id = bg-gif src="videos/static_gif.gif">
+    <nav>
+        <a id = "homeb" href="index.html">
+            <img src="images/Iota_logo_transparent.png" id="home-logo">
+        </a>
+        <div class = "rightButtons">
+            <a id = "aboutB" href="aboutUs.html">about</a>
+            <a id = "projB" href="projects.html">projects</a>
+        </div>
+
+    </nav>
+
+        <div class = "image-buttons-top">
+            <a id = "Improbabil" href="teatru_improbabil.html">
+            <img src="images/improbabil.png" id="teatru-improbabil-poza">
+            </a>
+
+            <a id = "Uranus" href="uranus.html">
+            <img src="images/Uranus.png" id="uranus-poza">
+            </a>
+
+            <a id = "Poduri" href="poduri.html">
+            <img src="images/poduri.png" id="poduri-poza">
+            </a>
+
+            <a id = "Laughing" href="laughing.html">
+            <img src="images/laughing.png" id="laughing">
+            </a>
+
+           
+        </div>
+
+          <div class = "image-buttons-bottom">
+            <a id = "Horror-Vacui" href="horror_vacui.html">
+            <img src="images/horror_vacui.png" id="vacui-poza">
+            </a>
+
+            <a id = "Rauri" href="rivers.html">
+            <img src="images/rauri.png" id="rauri-poza">
+            </a>
+
+            <a id = "Clovni" href="clowns.html">
+            <img src="images/clovni.png" id="clovni-poza">
+            </a>
+
+            <a id = "Other-projects" href="other.html">
+            <img src="images/other.png" id="other-poza">
+            </a>
+        </div>
+
+        <div class = "text-buttons-top">
+            <a id = "improbabilB" href="teatru_improbabil.html">The Improbable Theater</a>
+            <a id = "uranusB" href="uranus.html">I am Uranus</a>
+            <a id = "bridgesB" href="poduri.html">Bridges</a>
+            <a id = "laughingB" href="laughing.html">Why are you laughing?</a>
+        </div>
+
+        <div class = "text-buttons-bottom">
+            <a id = "vacuiB" href="horror_vacui.html">Horror Vacui</a>
+            <a id = "rauriB" href="rivers.html">Rivers</a>
+            <a id = "clovniB" href="clowns.html">Clowns</a>
+            <a id = "otherB" href="other.html">Future projects</a>
+        </div>
+
+        <div class="contact-info">
+            <span id="text1">cultural projects that tie the world together</span>
+            <span id="text2">get in touch: hello@iota.ong</span> <!--aici de adaugat linkuri la socials mai tarziu-->
+        </div>
+
+
+<script>
+const buttonPairs = [
+    { text: 'improbabilB', img: 'Improbabil', color: '#F2DC1B' },
+    { text: 'uranusB', img: 'Uranus', color: '#F26018' },         
+    { text: 'bridgesB', img: 'Poduri', color: '#4EB2CC' },        
+    { text: 'laughingB', img: 'Laughing', color: '#DCED2B' },    
+    { text: 'vacuiB', img: 'Horror-Vacui', color: '#9E1010' },    
+    { text: 'rauriB', img: 'Rauri', color: '#1411B8' },          
+    { text: 'clovniB', img: 'Clovni', color: '#F21111' },         
+    { text: 'otherB', img: 'Other-projects', color: '#F5D000' }   
+];
+
+buttonPairs.forEach(pair => {
+    const textBtn = document.getElementById(pair.text);
+    const imgBtn = document.getElementById(pair.img).querySelector('img');
+
+    if (!textBtn || !imgBtn) return;
+
+    function addHover() {
+        textBtn.style.transform = "scale(1.1)";
+        textBtn.style.color = pair.color;   
+        imgBtn.style.transform = "scale(1.3)";
+    }
+
+    function removeHover() {
+        textBtn.style.transform = "";
+        textBtn.style.color = "";  
+        imgBtn.style.transform = "";
+    }
+
+    textBtn.addEventListener('mouseenter', addHover);
+    textBtn.addEventListener('mouseleave', removeHover);
+
+    imgBtn.addEventListener('mouseenter', addHover);
+    imgBtn.addEventListener('mouseleave', removeHover);
+});
+
+</script>
+
+</body>
+</html>
