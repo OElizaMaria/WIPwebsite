@@ -10,6 +10,7 @@
 
 </head>
 <body>
+
       
     <img id = bg-gif src="videos/static_gif.gif">
     <nav>
@@ -93,7 +94,6 @@
             <span id="text2">get in touch: hello@iota.ong</span> <!--aici de adaugat linkuri la socials mai tarziu-->
         </div>
 
-
 <script>
 const buttonPairs = [
     { text: 'improbabilB', img: 'Improbabil', color: '#F2DC1B' },
@@ -133,5 +133,36 @@ buttonPairs.forEach(pair => {
 
 </script>
 
+<script>
+document.querySelectorAll('a[href]').forEach(link => {
+    const url = link.getAttribute('href');
+
+    if (!url || url.startsWith('#') || url.startsWith('http')) return;
+
+    if (link.closest('.projects-menu') || link.closest('.projects-dropdown')) return;
+
+    link.addEventListener('click', e => {
+        e.preventDefault();
+
+        const iframe = document.getElementById('page-loader');
+        document.body.classList.add('transitioning');
+
+        iframe.src = url;
+
+        setTimeout(() => {
+            window.location.replace(url);
+        }, 1200);
+
+        iframe.onload = () => {
+            iframe.classList.add('active');
+            setTimeout(() => {
+                window.location.replace(url);
+            }, 1100);
+        };
+    });
+});
+</script>
+<iframe id="page-loader"></iframe>
 </body>
+
 </html>

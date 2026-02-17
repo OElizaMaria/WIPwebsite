@@ -1,6 +1,55 @@
- body {
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+}
+
+html{
+     scrollbar-gutter: stable;
+     margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+}
+
+
+body.transitioning {
+  overflow: hidden;
+}
+#page-loader {
+  position: fixed;
+  inset: 0;
+  border: none;
+  width: 100vw;
+  height: 100vh;
+  transform: translateY(100%);
+  z-index: 9999;
+  background: transparent;
+  pointer-events: none;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+   transform: translate3d(0, 100%, 0);
+}
+
+#page-loader.active {
+   animation: slideNext 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideNext {
+   from {
+    transform: translateY(100%) scale(0.985);
+    opacity: 0.98;
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #page-loader.active {
+    animation: none;
+    transform: translateY(0);
+  }
 }
 
  #bg-gif {
@@ -16,7 +65,8 @@
 nav {
     display: flex;   
     justify-content: space-between;      
-    align-items: center;          
+    align-items: center;  
+    width: 100%;        
     padding: 0.1px 20px;
 }
 
@@ -51,6 +101,7 @@ nav {
 .projects-dropdown {
     position: relative;
     display: inline-block;
+    isolation: isolate; 
 }
 
 #projB {
@@ -76,10 +127,11 @@ nav {
     background-color: #EDEBE4;
     min-width: 150px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    z-index: 1000;         
+    z-index: 10000;         
     border-radius: 5px;          
     overflow-y: auto;    
     padding: 10px;
+    isolation: isolate; 
 }
 
 .projects-menu a {

@@ -1,75 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scrolling Gallery</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-    .container {
-      display: flex;
-      align-items: flex-start;
-    }
-
-    /* Text section on the right */
-    .text {
-      position: sticky;
-      top: 0;
-      flex: 1;
-      padding: 20px;
-      height: 100vh; /* fill the viewport */
-      background-color: #f0f0f0;
-      box-sizing: border-box;
-    }
-
-    /* Gallery section on the left */
-    .gallery {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 100vh; /* Each image takes full viewport height */
-      object-fit: cover;
-    }
-
-    /* Extra content after the gallery */
-    .after-gallery {
-      height: 500px;
-      background: #ddd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-    }
-  </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="gallery">
-      <img src="https://picsum.photos/id/1011/800/600" alt="Photo 1">
-      <img src="https://picsum.photos/id/1012/800/600" alt="Photo 2">
-      <img src="https://picsum.photos/id/1013/800/600" alt="Photo 3">
-      <img src="https://picsum.photos/id/1015/800/600" alt="Photo 4">
+      
+    <img id = bg-gif src="videos/white_static.gif">
+    <nav>
+        <a id = "homeb" href="index.html">
+            <img src="images/Iota_logo_transparent.png" id="home-logo">
+        </a>
+        <div class="rightButtons">
+        <a id="aboutB" href="aboutUs.html">about</a>
+
+        <div class="projects-dropdown">
+            <a id="projB">projects</a>
+            <div class="projects-menu">
+                <a href="teatru_improbabil.html">The Improbable Theater</a>
+                <a href="uranus.html">I am Uranus</a>
+                <a href="poduri.html">Bridges</a>
+                <a href="laughing.html">Why are you laughing?</a>
+                <a href="horror_vacui.html">Horror Vacui</a>
+                <a href="rivers.html">Rivers</a>
+                <a href="clowns.html">Clowns</a>
+                <a href="other.html">Future projects</a>
+            </div>
+        </div>
     </div>
 
-    <div class="text">
-      <h1>Sticky Text Section</h1>
-      <p>This text stays in place while the images scroll.</p>
-      <p>Once you finish scrolling the images, you can continue scrolling the rest of the page.</p>
-    </div>
-  </div>
+    </nav>
 
-  <div class="after-gallery">
-    End of gallery content
-  </div>
+<script>
+document.querySelectorAll('a[href]').forEach(link => {
+    const url = link.getAttribute('href');
 
+    if (!url || url.startsWith('#') || url.startsWith('http')) return;
+
+   
+    if (link.closest('.projects-menu') || link.closest('.projects-dropdown')) return;
+
+    link.addEventListener('click', e => {
+        e.preventDefault();
+
+        const iframe = document.getElementById('page-loader');
+        document.body.classList.add('transitioning');
+
+        iframe.src = url;
+
+        setTimeout(() => {
+            window.location.replace(url);
+        }, 1200);
+
+        iframe.onload = () => {
+            iframe.classList.add('active');
+            setTimeout(() => {
+                window.location.replace(url);
+            }, 1100);
+        };
+    });
+});
+</script>
+
+<iframe id="page-loader"></iframe>
 </body>
+
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+      
+    <img id = bg-gif src="videos/white_static.gif">
+    <nav>
+        <a id = "homeb" href="index.html">
+            <img src="images/Iota_logo_transparent.png" id="home-logo">
+        </a>
+        <div class="rightButtons">
+        <a id="aboutB" href="aboutUs.html">about</a>
+
+        <div class="projects-dropdown">
+            <a id="projB">projects</a>
+            <div class="projects-menu">
+                <a href="teatru_improbabil.html">The Improbable Theater</a>
+                <a href="uranus.html">I am Uranus</a>
+                <a href="poduri.html">Bridges</a>
+                <a href="laughing.html">Why are you laughing?</a>
+                <a href="horror_vacui.html">Horror Vacui</a>
+                <a href="rivers.html">Rivers</a>
+                <a href="clowns.html">Clowns</a>
+                <a href="other.html">Future projects</a>
+            </div>
+        </div>
+    </div>
+
+    </nav>
+
+<script>
+document.querySelectorAll('a[href]').forEach(link => {
+    const url = link.getAttribute('href');
+
+    if (!url || url.startsWith('#') || url.startsWith('http')) return;
+
+   
+    if (link.closest('.projects-menu') || link.closest('.projects-dropdown')) return;
+
+    link.addEventListener('click', e => {
+        e.preventDefault();
+
+        const iframe = document.getElementById('page-loader');
+        document.body.classList.add('transitioning');
+
+        iframe.src = url;
+
+        setTimeout(() => {
+            window.location.replace(url);
+        }, 1200);
+
+        iframe.onload = () => {
+            iframe.classList.add('active');
+            setTimeout(() => {
+                window.location.replace(url);
+            }, 1100);
+        };
+    });
+});
+</script>
+
+<iframe id="page-loader"></iframe>
+</body>
+
+</html>
