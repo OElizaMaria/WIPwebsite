@@ -44,8 +44,6 @@ document.querySelectorAll('a[href]').forEach(link => {
     if (!url || url.startsWith('#') || url.startsWith('http')) return;
 
    
-    if (link.closest('.projects-menu') || link.closest('.projects-dropdown')) return;
-
     link.addEventListener('click', e => {
         e.preventDefault();
 
