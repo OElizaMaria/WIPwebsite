@@ -101,7 +101,7 @@ nav {
 .projects-dropdown {
     position: relative;
     display: inline-block;
-    isolation: isolate; 
+    /* isolation: isolate;  */
 }
 
 #projB {
@@ -131,7 +131,7 @@ nav {
     border-radius: 5px;          
     overflow-y: auto;    
     padding: 10px;
-    isolation: isolate; 
+    /* isolation: isolate;  */
 }
 
 .projects-menu a {
